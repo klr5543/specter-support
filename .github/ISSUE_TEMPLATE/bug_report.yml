@@ -1,0 +1,91 @@
+name: SPECTER problem report
+description: Report a reproducible SPECTER issue with safe diagnostic details.
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve SPECTER. Please report a problem you can reproduce and include the details below.
+
+        **This issue will be public. Never include provider API keys, passwords, tokens, private manifest/install URLs, or personal information.** Redact screenshots and logs before attaching them.
+
+        **هذا البلاغ سيكون عامًا. لا ترفق مفاتيح المزودين أو كلمات المرور أو رموز الدخول أو روابط التثبيت الخاصة أو معلوماتك الشخصية. نقّح الصور والسجلات قبل إرفاقها.**
+  - type: dropdown
+    id: area
+    attributes:
+      label: Problem area / مجال المشكلة
+      options:
+        - Install or manifest / التثبيت أو manifest
+        - Subtitle search returns no results / البحث لا يعرض نتائج
+        - Incorrect subtitle, language, or episode / ترجمة أو لغة أو حلقة غير صحيحة
+        - Provider key or verification / مفتاح المزود أو التحقق منه
+        - Configuration page or settings / صفحة الإعداد أو الخيارات
+        - Other / أخرى
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: SPECTER version / إصدار SPECTER
+      description: Find it on the Configuration page or in the add-on manifest.
+      placeholder: "0.2.2"
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Stremio app and device / تطبيق Stremio والجهاز
+      description: Include Stremio version, OS, and device type if known. / أضف إصدار Stremio ونظام التشغيل ونوع الجهاز إن أمكن.
+      placeholder: "Stremio 4.x, Windows 11, desktop"
+    validations:
+      required: true
+  - type: dropdown
+    id: provider
+    attributes:
+      label: Related provider / المزود المرتبط بالمشكلة
+      options:
+        - Not provider-specific / لا يرتبط بمزود محدد
+        - SubDL
+        - OpenSubtitles
+        - Wyzie
+        - SubSource
+        - Unsure / غير معروف
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce / خطوات تكرار المشكلة
+      description: List what you clicked or searched for. Do not paste private install URLs. / اذكر ما ضغطت عليه أو بحثت عنه، ولا تلصق رابط التثبيت الخاص.
+      placeholder: "1. Open …\n2. Search for …\n3. Select …"
+    validations:
+      required: true
+  - type: textarea
+    id: expected-actual
+    attributes:
+      label: Expected and actual result / النتيجة المتوقعة وما حدث
+      description: What did you expect, and what happened instead? / ماذا توقعت، وماذا حدث؟
+    validations:
+      required: true
+  - type: textarea
+    id: error
+    attributes:
+      label: Error message or safe diagnostics / رسالة الخطأ أو التشخيص الآمن
+      description: Paste the exact error if available. You can copy Safe Diagnostics from the Support page. Redact secrets and private URLs first. / الصق رسالة الخطأ إن وجدت. يمكنك نسخ ملخص التشخيص الآمن من صفحة الدعم بعد تنقيح الأسرار والروابط الخاصة.
+      render: text
+    validations:
+      required: false
+  - type: input
+    id: occurrence
+    attributes:
+      label: Approximate time and timezone / وقت حدوث المشكلة والمنطقة الزمنية
+      placeholder: "2026-09-30 20:15 Asia/Riyadh"
+    validations:
+      required: false
+  - type: checkboxes
+    id: safe-to-share
+    attributes:
+      label: Privacy check / تأكيد الخصوصية
+      options:
+        - label: I checked that this report contains no API keys, passwords, tokens, private install links, or personal information. / تأكدت من خلو البلاغ من مفاتيح API وكلمات المرور والرموز وروابط التثبيت الخاصة ومعلوماتي الشخصية.
+          required: true
